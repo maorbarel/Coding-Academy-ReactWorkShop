@@ -1,31 +1,26 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom'
+
+
 import ContactPreview from './ContactPreview'
 
-
-export default class ContactList extends Component {
-    render() {
-        const contacts = this.props.contacts.map(contact =>
-            (
-                <li key={contact._id}>
-                    <ContactPreview contact={contact} />
+const ContactList = (props) => props.contacts.map(contact => {
+    return (
+        <section className="ContactList">
+            <ul>
+                <li>
+                    <Link to={`/contact/${contact._id}`}>
+                        <ContactPreview
+                            contact={contact}
+                            key={contact._id} />
+                    </Link>
                 </li>
-            )
-        )
-        return (
-            <section className="ContactList">
-                <ul>
-                    {contacts}
-                </ul>
-            </section>
-        );
-    }
+            </ul>
+        </section>
+    )
+});
+ContactList.propTypes = {
+    contacts: PropTypes.arrayOf(Object).isRequired,
 }
-
-
-
-
-
-
-
-
+export default ContactList

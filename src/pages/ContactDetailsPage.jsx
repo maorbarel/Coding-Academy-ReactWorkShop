@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import ContactService from '../services/ContactService'
 
-
 export default class ContactDetailsPage extends Component {
     state = {
         currUser: {}
     }
     componentDidMount() {
-        ContactService.getContactById('5a56640252d6acddd183d319').then(res => {
+        console.log('in dp')
+        const { id } = this.props.match.params
+        ContactService.getContactById(id).then(res => {
             this.setState({ currUser: res })
         })
     }
     render() {
+
         return (
             <section className="ContactDetailsPage">
                 <div className="ContactDetailsPage-container">

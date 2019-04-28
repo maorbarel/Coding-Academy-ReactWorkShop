@@ -29,7 +29,6 @@ export default class HomePage extends Component {
                         <h6>Rate: <span className="rate">{this.state.rate}</span> </h6>
                     </div>
                 </div>
-
             </section>
         );
     }

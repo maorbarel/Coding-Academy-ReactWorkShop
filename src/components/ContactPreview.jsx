@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ContactPreview = (props) => {
     return (
@@ -12,4 +13,8 @@ const ContactPreview = (props) => {
         </section>
     )
 }
-export default ContactPreview
+
+ContactPreview.propTypes = {
+    contact: PropTypes.object.isRequired,
+}
+export default ContactPreview;
